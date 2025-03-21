@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Opu-Nembe Youth Computer Training - Art student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #quiz-section, #result-section { display: none; }
+        .option-btn {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 50%;
+            cursor: pointer;
+        }
+        .question-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .nav-btn {
+            margin: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            border: 1px solid #000;
+        }
+        .result-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            margin: auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .score-text {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="name-section">
+        <h1>Welcome to Opu-Nembe Youth Computer Training - Art JAMB PRACTICE</h1>
+        <p><strong>Instructions:</strong> This is a timed test. Ensure you select the correct answer for each question. Good luck!</p>
+        <input type="text" id="first-name" placeholder="Enter First Name" required>
+        <input type="text" id="surname" placeholder="Enter Surname" required>
+        <button onclick="startQuiz()">Start Assessment</button>
+    </div>
+
+    <div id="quiz-section">
+        <h2 id="question"></h2>
+        <div id="options"></div>
+        <button onclick="prevQuestion()">Back</button>
+        <button onclick="nextQuestion()">Next</button>
+        <button id="submit-btn" onclick="endQuiz()" style="display: none;">Submit</button>
+        <p>Time left: <span id="timer">10:00</span></p>
+        <div class="question-nav" id="question-nav"></div>
+    </div>
+    <p id="question-number"></p>
+
+    <div id="result-section">
+        <div class="result-card">
+            <h2>Assessment Complete!</h2>
+            <p><strong>Name:</strong> <span id="user-fullname"></span></p>
+            <p><strong>Time Spent:</strong> <span id="time-spent"></span></p>
+            <p class="score-text">Your Score: <span id="score"></span> out of <span id="total-questions"></span></p>
+            <p id="advice-message"></p>
+            <h3>Corrections:</h3>
+            <ul id="corrections"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
